@@ -69,7 +69,6 @@ using (var scope = app.Services.CreateScope())
 
     var passwordHasher = scope.ServiceProvider.GetRequiredService<IPasswordHasher>();
     await AdminSeed.SeedAsync(context, passwordHasher);
-    await MockDataSeeder.SeedMockDataAsync(context, passwordHasher);
 }
 
 // Middleware pipeline
