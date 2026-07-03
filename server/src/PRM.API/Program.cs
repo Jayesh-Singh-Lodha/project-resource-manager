@@ -19,13 +19,25 @@ builder.Services.AddHostedService<PRM.Infrastructure.BackgroundJobs.SchedulerSer
 builder.Services.AddControllers();
 
 // Register CORS
+var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("FrontendCorsPolicy", policy =>
     {
-        policy.WithOrigins("http://localhost:5173", "http://localhost:3000") // Adding 3000 just in case
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        if (app.Environment.IsDevelopment())
+        {
+            policy.WithOrigins("http://localhost:5173", "http://localhost:3000")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        }
+        else
+        {
+            policy.WithOrigins(allowedOrigins)
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials(); // Often needed for production auth cookies/tokens if passed via headers/cookies across subdomains
+        }
     });
 });
 
