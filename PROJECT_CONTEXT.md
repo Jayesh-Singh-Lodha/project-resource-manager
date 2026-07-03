@@ -3,7 +3,7 @@
 > **Purpose of this document:** Single source of truth for architecture, conventions, and task workflow.
 > Reference this file (`@PROJECT_CONTEXT.md`) in every request to avoid re-explaining context.
 
----
+---h
 
 ## 1. Project Summary
 

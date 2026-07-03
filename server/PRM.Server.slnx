@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PRM.API/PRM.API.csproj" />
+    <Project Path="src/PRM.Application/PRM.Application.csproj" />
+    <Project Path="src/PRM.Core/PRM.Core.csproj" />
+    <Project Path="src/PRM.Infrastructure/PRM.Infrastructure.csproj" />
+    <Project Path="src/PRM.Shared/PRM.Shared.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PRM.Application.Tests/PRM.Application.Tests.csproj" />
+  </Folder>
+</Solution>
