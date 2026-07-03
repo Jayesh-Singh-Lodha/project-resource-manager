@@ -18,6 +18,17 @@ builder.Services.AddHostedService<PRM.Infrastructure.BackgroundJobs.SchedulerSer
 // Add controllers
 builder.Services.AddControllers();
 
+// Register CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("FrontendCorsPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173", "http://localhost:3000") // Adding 3000 just in case
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Swagger (development only)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -74,6 +85,8 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseHttpsRedirection();
 }
+
+app.UseCors("FrontendCorsPolicy");
 
 app.UseAuthentication();
 app.UseAuthorization();

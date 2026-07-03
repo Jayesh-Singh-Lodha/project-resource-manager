@@ -18,10 +18,10 @@ public static class ConsoleHelper
         System.Console.WriteLine();
         System.Console.ForegroundColor = ConsoleColor.Cyan;
         System.Console.WriteLine($"╔{border}╗");
-        System.Console.WriteLine($"║  {line1.PadRight(BoxWidth - 5)}║");
+        System.Console.WriteLine($"║  {line1.PadRight(BoxWidth - 4)}║");
         if (line2 is not null)
         {
-            System.Console.WriteLine($"║  {line2.PadRight(BoxWidth - 5)}║");
+            System.Console.WriteLine($"║  {line2.PadRight(BoxWidth - 4)}║");
         }
         System.Console.WriteLine($"╚{border}╝");
         System.Console.ResetColor();

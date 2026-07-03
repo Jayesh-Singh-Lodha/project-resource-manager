@@ -13,6 +13,7 @@ public record UserResponse(
     string Status,
     bool IsActive,
     bool ForcePasswordChange,
+    bool IsTimesheetFrozen,
     DateTime CreatedAt,
     int? ManagerId,
     IReadOnlyList<string>? Skills = null,

@@ -96,6 +96,7 @@ public class UserService : IUserService
             Status: user.Status.ToString(),
             IsActive: user.IsActive,
             ForcePasswordChange: user.ForcePasswordChange,
+            IsTimesheetFrozen: user.IsTimesheetFrozen,
             CreatedAt: user.CreatedAt,
             ManagerId: user.ManagerId,
             Skills: user.UserSkills?.Select(us => us.Skill.Name).ToList() ?? new List<string>(),
