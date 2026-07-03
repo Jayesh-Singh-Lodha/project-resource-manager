@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PRM.Infrastructure.Data;
 
@@ -16,39 +15,33 @@ namespace PRM.Infrastructure.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.28")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.28");
 
             modelBuilder.Entity("PRM.Core.Entities.Allocation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("allocation_id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<DateTime>("FromDate")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("from_date");
 
                     b.Property<int>("ProjectId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("project_id");
 
                     b.Property<DateTime>("ToDate")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("to_date");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("user_id");
 
                     b.Property<int>("UtilisationPercent")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("utilisation_percent");
 
                     b.HasKey("Id");
@@ -66,33 +59,31 @@ namespace PRM.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("milestone_id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<DateTime>("DueDate")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("due_date");
 
                     b.Property<int>("ProjectId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("project_id");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("status");
 
                     b.Property<int>("StoryPoints")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("story_points");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("title");
 
                     b.HasKey("Id");
@@ -106,20 +97,18 @@ namespace PRM.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("name");
 
                     b.HasKey("Id");
@@ -135,13 +124,11 @@ namespace PRM.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("project_id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("created_at");
 
                     b.Property<string>("Description")
@@ -149,43 +136,43 @@ namespace PRM.Infrastructure.Migrations
                         .HasColumnName("description");
 
                     b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("end_date");
 
                     b.Property<string>("HealthStatus")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("TEXT")
                         .HasDefaultValue("OnTrack")
                         .HasColumnName("health_status");
 
                     b.Property<int?>("ManagerId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("manager_id");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("name");
 
                     b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("start_date");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("status");
 
                     b.Property<int>("TotalStoryPoints")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("total_story_points");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("updated_at");
 
                     b.HasKey("Id");
@@ -199,20 +186,18 @@ namespace PRM.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("name");
 
                     b.HasKey("Id");
@@ -227,11 +212,11 @@ namespace PRM.Infrastructure.Migrations
             modelBuilder.Entity("PRM.Core.Entities.RolePermission", b =>
                 {
                     b.Property<int>("RoleId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("role_id");
 
                     b.Property<int>("PermissionId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("permission_id");
 
                     b.HasKey("RoleId", "PermissionId");
@@ -245,21 +230,19 @@ namespace PRM.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("skill_id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("category");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("name");
 
                     b.HasKey("Id");
@@ -275,13 +258,13 @@ namespace PRM.Infrastructure.Migrations
                 {
                     b.Property<string>("Key")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("config_key");
 
                     b.Property<string>("Value")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("config_value");
 
                     b.HasKey("Key");
@@ -293,33 +276,31 @@ namespace PRM.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("timesheet_id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<DateTime?>("LastReminderSentAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("ReminderCount")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("status");
 
                     b.Property<DateTime?>("SubmittedAt")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("submitted_at");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("user_id");
 
                     b.Property<DateTime>("WeekStartDate")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("week_start_date");
 
                     b.HasKey("Id");
@@ -335,14 +316,12 @@ namespace PRM.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("entry_id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ActivityTags")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("activity_tags");
 
                     b.Property<decimal>("HoursWorked")
@@ -350,11 +329,11 @@ namespace PRM.Infrastructure.Migrations
                         .HasColumnName("hours_worked");
 
                     b.Property<int>("ProjectId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("project_id");
 
                     b.Property<int>("TimesheetId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("timesheet_id");
 
                     b.HasKey("Id");
@@ -370,77 +349,75 @@ namespace PRM.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("created_at");
 
                     b.Property<string>("Department")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("department");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("email");
 
                     b.Property<bool>("ForcePasswordChange")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
+                        .HasColumnType("INTEGER")
                         .HasDefaultValue(true)
                         .HasColumnName("force_password_change");
 
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("full_name");
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
+                        .HasColumnType("INTEGER")
                         .HasDefaultValue(true)
                         .HasColumnName("is_active");
 
                     b.Property<bool>("IsTimesheetFrozen")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("ManagerId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("manager_id");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("password_hash");
 
                     b.Property<int>("RoleId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("role_id");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("TEXT")
                         .HasDefaultValue("Bench")
                         .HasColumnName("status");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("TEXT")
                         .HasColumnName("updated_at");
 
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("username");
 
                     b.HasKey("Id");
@@ -463,17 +440,17 @@ namespace PRM.Infrastructure.Migrations
             modelBuilder.Entity("PRM.Core.Entities.UserSkill", b =>
                 {
                     b.Property<int>("UserId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("user_id");
 
                     b.Property<int>("SkillId")
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("skill_id");
 
                     b.Property<string>("ProficiencyLevel")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("proficiency_level");
 
                     b.HasKey("UserId", "SkillId");

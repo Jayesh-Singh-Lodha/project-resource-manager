@@ -28,9 +28,9 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        // EF Core — SQL Server with LocalDB
+        // EF Core — SQLite
         services.AddDbContext<PrmDbContext>(options =>
-            options.UseSqlServer(
+            options.UseSqlite(
                 configuration.GetConnectionString("DefaultConnection")));
 
         // Repositories
