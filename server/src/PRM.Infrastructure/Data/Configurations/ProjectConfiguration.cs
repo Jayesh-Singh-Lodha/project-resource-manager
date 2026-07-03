@@ -26,7 +26,7 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
 
         builder.Property(p => p.Description)
             .HasColumnName("description")
-            .HasColumnType("nvarchar(max)");
+            .IsRequired(false);
 
         builder.Property(p => p.StartDate)
             .HasColumnName("start_date")

@@ -11,7 +11,7 @@ using PRM.Infrastructure.Data;
 namespace PRM.Infrastructure.Migrations
 {
     [DbContext(typeof(PrmDbContext))]
-    [Migration("20260703092931_InitialSqlite")]
+    [Migration("20260703104253_InitialSqlite")]
     partial class InitialSqlite
     {
         /// <inheritdoc />
@@ -135,7 +135,7 @@ namespace PRM.Infrastructure.Migrations
                         .HasColumnName("created_at");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("TEXT")
                         .HasColumnName("description");
 
                     b.Property<DateTime>("EndDate")

@@ -133,7 +133,7 @@ namespace PRM.Infrastructure.Migrations
                     project_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
-                    description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    description = table.Column<string>(type: "TEXT", nullable: true),
                     start_date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     end_date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     status = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
